@@ -452,7 +452,7 @@ class BattleGUI:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    # Store an instance of GameGUI in root's data to access it later from BattleGUI
+    # Store an instance of GameGUI in root's data to access it later from BattleGUI 
     root._data = {"game_gui_instance": None} 
     game_app = GameGUI(root)
     root._data["game_gui_instance"] = game_app

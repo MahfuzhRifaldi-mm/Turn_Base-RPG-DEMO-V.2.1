@@ -176,17 +176,17 @@ class Character(Entity):
         # ATK sudah diperbarui secara dinamis oleh _apply_stat_modifications
         damage = self.atk
         target.take_damage(damage)
-        self.gain_energy(10)
+        self.gain_energy(20)
         # Efek Storm Piercer
         if self.weapon and self.weapon.effect == 'double_attack': 
              print(f"{self.name} menyerang lagi karena Storm Piercer!") 
              target.take_damage(damage) 
-             self.gain_energy(10) 
+             self.gain_energy(20) 
         return True # Menandakan aksi berhasil
 
     def skill(self, target, **kwargs):
         print(f"{self.name} menggunakan Skill!")
-        self.gain_energy(20)
+        self.gain_energy(30)
         return True
     
     def special(self, target, **kwargs):
@@ -367,7 +367,7 @@ class Boss(Entity):
 class StoneGolem(Boss):
     def __init__(self):
         # Menyesuaikan stats boss agar lebih seimbang
-        super().__init__("Ancient Stone Golem", hp=1200, atk=200, defe=50, spd=70) # Sedikit mengurangi HP/ATK/DEF boss
+        super().__init__("Ancient Stone Golem", hp=3000, atk=200, defe=50, spd=70) # Sedikit mengurangi HP/ATK/DEF boss
     def special_action(self, player_team):
         print(f"{self.name} menggunakan 'Earthquake'! Menyerang semua karakter.")
         for player in player_team:
@@ -378,7 +378,7 @@ class StoneGolem(Boss):
 class VoidDragon(Boss):
     def __init__(self):
         # Menyesuaikan stats boss agar lebih seimbang
-        super().__init__("Void Dragon", hp=1400, atk=250, defe=50, spd=120) # Sedikit mengurangi HP/DEF boss, ATK masih tinggi
+        super().__init__("Void Dragon", hp=3100, atk=250, defe=50, spd=120) # Sedikit mengurangi HP/DEF boss, ATK masih tinggi
         self.enrage_threshold = 0.6 
     def special_action(self, player_team):
         print(f"{self.name} menggunakan 'Corrupting Breath'! Menyerang dan memberi debuff.")
@@ -391,7 +391,7 @@ class VoidDragon(Boss):
 class CelestialArbiter(Boss):
     def __init__(self):
         # Menyesuaikan stats boss agar lebih seimbang
-        super().__init__("Celestial Arbiter", hp=1500, atk=180, defe=50, spd=105) # Mengurangi HP/ATK/DEF boss
+        super().__init__("Celestial Arbiter", hp=3300, atk=180, defe=50, spd=105) # Mengurangi HP/ATK/DEF boss
     def special_action(self, player_team):
         print(f"{self.name} menggunakan 'Judgment'! Menghapus buff tim dan menyerang.")
         for player in player_team:
